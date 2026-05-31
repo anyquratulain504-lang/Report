@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "BC Container",
+            "type": "al",
+            "request": "launch",
+            "server": "http://mybc",
+            "serverInstance": "BC",
+            "authentication": "UserPassword",
+            "tenant": "default",
+            "startupObjectType": "Page",
+            "startupObjectId": 22,
+            "breakOnError": "All",
+            "launchBrowser": true
+        }
+    ]
+}
