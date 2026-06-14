@@ -21,9 +21,12 @@ table 50110 EmployeeManagement
 
         field(4; Salary; Decimal)
         {
-            DataClassification = CustomerContent;
+            trigger OnValidate()
+            begin
+                if Salary < 0 then
+                    Error('Salary cannot be negative.');
+            end;
         }
-
         field(5; "Joining Date"; Date)
         {
             DataClassification = CustomerContent;

@@ -1,15 +1,15 @@
-page 50103 EmployeeManagementList
+page 50110 EmployeeManagementCard
 {
-    PageType = List;
+    PageType = Card;
     SourceTable = EmployeeManagement;
-    UsageCategory = Lists;
+    UsageCategory = Documents;
     ApplicationArea = All;
 
     Layout
     {
         area(Content)
         {
-            repeater(General)
+            group(General)
             {
                 Field("Employee ID"; Rec."Employee ID")
                 {
