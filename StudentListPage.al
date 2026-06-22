@@ -1,7 +1,7 @@
 page 50100 StudentListPage
 {
     PageType = List;
-    SourceTable = StudentList;
+    SourceTable = StudentTable;
     ApplicationArea = All;
     UsageCategory = Lists;
     Caption = 'Student List';
@@ -12,11 +12,11 @@ page 50100 StudentListPage
         {
             repeater(Group)
             {
-                field("ID"; Rec."ID")
+                field("Student ID"; Rec."Student ID")
                 {
                     ApplicationArea = All;
                 }
-                field("Name"; Rec."Name")
+                field("Student Name"; Rec."Student Name")
                 {
                     ApplicationArea = All;
                 }
@@ -28,6 +28,75 @@ page 50100 StudentListPage
                 {
                     ApplicationArea = All;
                 }
+                field("Status"; Rec."Status")
+                {
+                    ApplicationArea = All;
+                }
+                field("Marks"; Rec."Marks")
+                {
+                    ApplicationArea = All;
+                }
+                field(Gender; Rec.Gender)
+                {
+                    ApplicationArea = All;
+                }
+            }
+        }
+    }
+    actions
+    {
+        area(Processing)
+        {
+            action(UpdateStatus)
+            {
+                ApplicationArea = All;
+                Caption = 'Update Status';
+
+                trigger OnAction()
+                var
+                    StudentMgmt: Codeunit StudentManagement;
+                begin
+                    StudentMgmt.UpdateStatus();
+                end;
+            }
+
+            action(FindTopper)
+            {
+                ApplicationArea = All;
+                Caption = 'Find Topper';
+
+                trigger OnAction()
+                var
+                    StudentMgmt: Codeunit StudentManagement;
+                begin
+                    StudentMgmt.FindTopper();
+                end;
+            }
+
+            action(FindLowest)
+            {
+                ApplicationArea = All;
+                Caption = 'Find Lowest';
+
+                trigger OnAction()
+                var
+                    StudentMgmt: Codeunit StudentManagement;
+                begin
+                    StudentMgmt.FindLowest();
+                end;
+            }
+
+            action(ShowPassedStudents)
+            {
+                ApplicationArea = All;
+                Caption = 'Show Passed Students';
+
+                trigger OnAction()
+                var
+                    StudentMgmt: Codeunit StudentManagement;
+                begin
+                    StudentMgmt.FilterPassedStudents();
+                end;
             }
         }
     }
